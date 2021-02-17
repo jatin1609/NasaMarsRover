@@ -31,8 +31,8 @@
 <main class="grid">
     @for (int i = 0; i < Models.ImageDownloader.ids.Count(); i++)
     {
-        <a target="_blank" href="@Models.ImageDownloader.urls[i]">
-            <img class="ex1" src="@Models.ImageDownloader.urls[i]" 
+        <a target="_blank" href="@Models.ImageDownloader.url[i]">
+            <img class="ex1" src="@Models.ImageDownloader.url[i]" 
                  alt="@Models.ImageDownloader.ids[i]" width='200' height='200'>
         </a>
     }

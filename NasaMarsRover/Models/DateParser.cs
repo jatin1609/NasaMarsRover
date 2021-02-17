@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NasaMarsRover.Models
+﻿namespace NasaMarsRover.Models
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// The Date Parser class
     /// </summary>
@@ -13,8 +11,9 @@ namespace NasaMarsRover.Models
         /// <summary>
         /// Parses the date.
         /// </summary>
-        /// <param name="text">The text.</param>
-        public static List<string> parseDates(string filePath)
+        /// <param name="filePath">The filePath.</param>
+        /// <returns>The list of dates.</returns>
+        public static List<string> ParseDates(string filePath)
         {
             string text = System.IO.File.ReadAllText(filePath);
 
@@ -26,7 +25,7 @@ namespace NasaMarsRover.Models
             foreach (string date in dates)
             {
                 // Format string as per the JSON data in API
-                string parsedDate = "";
+                string parsedDate = string.Empty;
                 string format = "yyyy-MM-dd";
                 try
                 {
@@ -34,8 +33,9 @@ namespace NasaMarsRover.Models
                 }
                 catch
                 {
-                    Console.WriteLine(String.Format("Invalid Date! - {0}", date));
+                    Console.WriteLine("Invalid Date! - " + date);
                 }
+
                 parsedDates.Add(parsedDate);
             }
 
@@ -43,4 +43,3 @@ namespace NasaMarsRover.Models
         }
     }
 }
-

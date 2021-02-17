@@ -1,24 +1,36 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-
-namespace NasaMarsRover.Models
+﻿namespace NasaMarsRover.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Net;
+    using Newtonsoft.Json;
+    using RestSharp;    
+    
+    /// <summary>
+    /// The Image Downloader class
+    /// </summary>
     public class ImageDownloader
     {
-        //Global variable for Rootobject class
+        /// <summary>
+        /// Global variable for list of URLs
+        /// </summary>
+        public static List<string> url = new List<string>();
+
+        /// <summary>
+        /// Global variable for the Root object class
+        /// </summary>
         public static Rootobject result = new Rootobject();
 
-        //Global variable for list of URLs
-        public static List<string> urls = new List<string>();
-
-        //Global variable for list of IDs
+        /// <summary>
+        /// Global variable for list of IDs
+        /// </summary>
         public static List<string> ids = new List<string>();
 
-        // Function to get data from api when earthdate is passed as parameter
+        /// <summary>
+        /// Function to Download the images.
+        /// </summary>
+        /// <param name="dates">The dates.</param>
         public static void DownloadImages(List<string> dates)
         {
             try
@@ -26,38 +38,42 @@ namespace NasaMarsRover.Models
                 foreach (string earthDate in dates)
                 {
                     var client = new RestClient(Constants.FetchQuery);
-                    string earthdate_query = Constants.API_Parameter +
-                        earthDate + Constants.API_Key;
+                    string earthdate_query = Constants.APIParameter +
+                        earthDate + Constants.APIKey;
                     RestRequest request = new RestRequest(earthdate_query, Method.GET);
                     var response = client.Execute(request);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        //Store the data from the request made
+                        // Store the data from the request made
                         string rawResponse = response.Content;
 
                         // Deserealize data and convert it into readable format
                         result = JsonConvert.DeserializeObject<Rootobject>(rawResponse);
-                        for (int i = 0; i < result.photos.Length; i++)
+                        for (int i = 0; i < result.Photos.Length; i++)
                         {
                             // Download images
-                            GetImage(i, result.photos[i].id);
+                            GetImage(i, result.Photos[i].Id);
 
                             // Add img urls in list
-                            urls.Add(result.photos[i].img_src);
+                            url.Add(result.Photos[i].Img_Src);
 
                             // Add ids in list
-                            ids.Add(result.photos[i].id.ToString());
+                            ids.Add(result.Photos[i].Id.ToString());
                         }
                     }
                 }
             }
             catch
             {
-                Console.WriteLine(String.Format("invalid API"));
+                Console.WriteLine("invalid API");
             }
         }
 
-        // Function to download images and store it in images folder
+        /// <summary>
+        /// Function to gets the image.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="id">The identifier.</param>
         public static void GetImage(int index, int id)
         {
             using (WebClient client = new System.Net.WebClient())
@@ -68,13 +84,16 @@ namespace NasaMarsRover.Models
                     var folderPath = desktopPath + @"\Mars-Rover\";
 
                     if (!Directory.Exists(folderPath))
+                    {
                         Directory.CreateDirectory(folderPath);
-                    client.DownloadFile(new Uri(result.photos[index].img_src),
-                        folderPath + id.ToString() + ".jpg");
+                    }
+
+                    client.DownloadFile(
+                        new Uri(result.Photos[index].Img_Src), folderPath + id.ToString() + ".jpg");
                 }
                 catch
                 {
-                    Console.WriteLine(String.Format("Invalid Path! - {0}", result.photos[index].img_src));
+                    Console.WriteLine("Invalid Path! - " + result.Photos[index].Img_Src);
                 }
             }
         }

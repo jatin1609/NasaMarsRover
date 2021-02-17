@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NasaMarsRover
+﻿namespace NasaMarsRover
 {
+    /// <summary>
+    /// The Constants class
+    /// </summary>
     public static class Constants
     {
         /// <summary>
@@ -20,11 +18,11 @@ namespace NasaMarsRover
         /// <summary>
         /// The API Parameter
         /// </summary>
-        public const string API_Parameter = "rovers/curiosity/photos?earth_date=";
+        public const string APIParameter = "rovers/curiosity/photos?earth_date=";
 
         /// <summary>
         /// The API Key
         /// </summary>
-        public const string API_Key = "&api_key=zNhO8rfSkQKfqtsFabMAlZgS6rXaygYrbQ5JpRiK";
+        public const string APIKey = "&api_key=zNhO8rfSkQKfqtsFabMAlZgS6rXaygYrbQ5JpRiK";
     }
 }

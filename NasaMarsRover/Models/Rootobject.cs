@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NasaMarsRover.Models
+﻿namespace NasaMarsRover.Models
 {
+    /// <summary>
+    /// The Root Class object
+    /// </summary>
     public class Rootobject
     {
-        public Photo[] photos { get; set; }
+        /// <summary>
+        /// Gets or sets the photos.
+        /// </summary>
+        /// <value>
+        /// The photos.
+        /// </value>
+        public Photo[] Photos { get; set; }
     }
 }
-

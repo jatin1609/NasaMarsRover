@@ -16,7 +16,7 @@
         public static void Main(string[] args)
         {
             // Update the path in the Constants file
-            var dates = DateParser.parseDates(Constants.DatesPath);
+            var dates = DateParser.ParseDates(Constants.DatesPath);
 
             // Downloads the images to a local folder as per the dates
             ImageDownloader.DownloadImages(dates);
