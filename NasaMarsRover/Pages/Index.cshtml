@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    img.ex1 {
+        margin-top: 15px;
+        margin-left: 15px;
+        border: 10px solid #555;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        align-items: stretch;
+        justify-items: stretch;
+    }
+
+    .grid img {
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+            max-width: 100%;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Mars Rover Photos</h1>
+</div>
+<main class="grid">
+    @for (int i = 0; i < Models.ImageDownloader.ids.Count(); i++)
+    {
+        <a target="_blank" href="@Models.ImageDownloader.urls[i]">
+            <img class="ex1" src="@Models.ImageDownloader.urls[i]" 
+                 alt="@Models.ImageDownloader.ids[i]" width='200' height='200'>
+        </a>
+    }
+</main>
+
+
