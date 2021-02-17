@@ -10,6 +10,7 @@ Steps to run the application:
 5. All the images will start downloading (takes ~60 seconds depending on the size of query request).
 6. The names of the images downloaded would be as per the ID mentioned in the API.
 6. Once all the images are downloaded, it will be displayed on to the web browser.
+7. All the images displayed are clickable and the link will redirect to the image source.
 
 Below is the screenshot of the output after the images were downloaded.
 ![Output Image](https://github.com/jatin1609/NasaMarsRover/blob/master/Output.png)
