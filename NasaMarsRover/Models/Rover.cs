@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NasaMarsRover.Models
+﻿namespace NasaMarsRover.Models
 {
     /// <summary>
     /// The Rover class
@@ -16,34 +11,38 @@ namespace NasaMarsRover.Models
         /// <value>
         /// The identifier.
         /// </value>
-        public int id { get; set; }
+        public int Id { get; set; }
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
-        public string name { get; set; }
+        public string Name { get; set; }
+
         /// <summary>
         /// Gets or sets the landing date.
         /// </summary>
         /// <value>
         /// The landing date.
         /// </value>
-        public string landing_date { get; set; }
+        public string Landing_Date { get; set; }
+
         /// <summary>
         /// Gets or sets the launch date.
         /// </summary>
         /// <value>
         /// The launch date.
         /// </value>
-        public string launch_date { get; set; }
+        public string Launch_Date { get; set; }
+
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
         /// <value>
         /// The status.
         /// </value>
-        public string status { get; set; }
+        public string Status { get; set; }
     }
 }

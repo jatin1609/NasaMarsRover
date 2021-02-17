@@ -14,4 +14,11 @@
     <PackageReference Include="RestSharp" Version="106.11.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Models\Rover.cs">
+      <ExcludeFromSourceAnalysis>False</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
 </Project>

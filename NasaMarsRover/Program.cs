@@ -20,6 +20,8 @@
 
             // Downloads the images to a local folder as per the dates
             ImageDownloader.DownloadImages(dates);
+
+            // Launches the application
             CreateHostBuilder(args).Build().Run();
         }
 
