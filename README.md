@@ -21,3 +21,4 @@ Future Scope:
 3. Date picker could be added if the user wants to display the images on the browser only.
 4. Images could be displayed on the browser first and the user can select the images to be downloaded as per the requirements.
 5. Incase of large number of images to be displayed, pagination can be added for better UI experience.
+6. A small description could also be added for better understanding of the photos.
